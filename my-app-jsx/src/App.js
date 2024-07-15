@@ -129,34 +129,156 @@
 //     );
 // }
 
+// // export default App;
+
+// import React from 'react';
+
+// const BookList = ({ books }) => (
+//   <ul>
+//     {books.map(book => (
+//       <li key={book.id}>
+//         <div>{book.title}</div>
+//         <div>{book.author}</div>
+//       </li>
+//     ))}
+//   </ul>
+// );
+
+// const App = () => {
+//   const books = [
+//     { id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee' },
+//     { id: 2, title: '1984', author: 'George Orwell' },
+//     { id: 3, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
+//   ];
+
+//   return (
+//     <div>
+//       <h1>List of Books</h1>
+//       <BookList books={books} />
+//     </div>
+//   );
+// };
+
 // export default App;
 
+
+//#image
+
+// import React, { Component } from 'react'
+
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <img src={process.env.PUBLIC_URL + "/img.png"} alt="img" width="300px" />
+//       </div>
+//     )
+//   }
+// }
+
+
+// import React, { Component } from 'react'
+// import img from "./img.png"
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <img src={img} alt="img" width="300px" />
+//       </div>
+//     )
+//   }
+// }
+
+// import React, { Component } from 'react'
+
+// export default class App extends Component {
+//   render() {
+//     const btnStyle = {
+//         color:"blue",
+//         backgroundColor:"red"
+//     };
+//     return (
+//       <div>
+//         <button style={btnStyle}>Button</button>
+//       </div>
+//     )
+//   }
+// }
+
+
+// import React, { Component } from 'react'
+
+// export default class App extends Component {
+//   render() {
+//     const txt1 = {
+//         color: "blue",
+//     };
+//     // const txt2 = {
+//     //     fontSize: "80px"
+//     // };
+//     return  <h1 style={{...txt1,...{fontSize:"150px"}}}>Hello Ashish</h1>;
+//   }
+// }
+
+// import React, { Component } from 'react';
+// import User from './User'; // Capitalize component names (convention)
+// import Guest from './Guest'; // Capitalize component names (convention)
+
+// export default class App extends Component {
+//   state = {
+//     name: "Rahul",
+//     roll: 101
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <User name={this.state.name} />
+//         <User name={this.state.roll} />
+//         <Guest name={this.state.name} />
+//         <Guest name={this.state.roll} />
+//       </div>
+//     );
+//   }
+// }
+
+// import React, { Component } from 'react'
+// import App_user from './App_user'
+// export default class App extends Component {
+//   state = {
+//     name : "Rahul"
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <App_user name={this.state.name}/>
+//       </div>
+//     )
+//   }
+// }
+
+// src/App.js
+
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import NotFound from './NotFound';
 
-const BookList = ({ books }) => (
-  <ul>
-    {books.map(book => (
-      <li key={book.id}>
-        <div>{book.title}</div>
-        <div>{book.author}</div>
-      </li>
-    ))}
-  </ul>
-);
-
-const App = () => {
-  const books = [
-    { id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee' },
-    { id: 2, title: '1984', author: 'George Orwell' },
-    { id: 3, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
-  ];
-
+function App() {
   return (
-    <div>
-      <h1>List of Books</h1>
-      <BookList books={books} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
